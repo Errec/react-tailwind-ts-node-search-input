@@ -1,12 +1,18 @@
 import React from 'react';
 
-type InputProps = {
+interface InputProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-};
+}
 
-const Input: React.FC<InputProps> = ({ value, onChange, onKeyDown }) => (
+/**
+ * Input component
+ *
+ * @param {InputProps} props - React props
+ * @returns {JSX.Element} The rendered component
+ */
+const Input: React.FC<InputProps> = ({ value, onChange, onKeyDown }: InputProps): JSX.Element => (
   <input
     type="text"
     value={value}
