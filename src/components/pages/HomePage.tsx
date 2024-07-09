@@ -16,8 +16,10 @@ const HomePage: React.FC = (): JSX.Element => {
 
   const handleSearch = async (query: string) => {
     setLoading(true);
+    console.log('Search query:', query);
     try {
       const response = await axios.get<SearchResult[]>('/api/data', { params: { search: query } });
+      console.log('Search results:', response.data);
       setResults(response.data);
     } catch (error) {
       console.error('Error fetching search results:', error);
