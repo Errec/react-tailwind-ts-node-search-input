@@ -12,15 +12,16 @@ interface InputProps {
  * @param {InputProps} props - React props
  * @returns {JSX.Element} The rendered component
  */
-const Input: React.FC<InputProps> = ({ value, onChange, onKeyDown }: InputProps): JSX.Element => (
-  <input
-    type="text"
-    value={value}
-    onChange={onChange}
-    onKeyDown={onKeyDown}
-    className="border border-gray-300 p-2 rounded w-full"
-    aria-label="Search input"
-  />
-);
+const Input: React.FC<InputProps> = ({ value, onChange, onKeyDown }) => {
+  return (
+    <input
+      type="text"
+      value={value}
+      onChange={onChange}
+      onKeyDown={onKeyDown}
+      className="border rounded p-2 w-full"
+    />
+  );
+};
 
 export default Input;

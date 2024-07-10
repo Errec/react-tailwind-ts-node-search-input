@@ -10,18 +10,18 @@
     "@types/node": "^16.18.53",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
+    "autoprefixer": "^10.4.19",
+    "axios": "^1.3.4",
     "concurrently": "^8.2.1",
     "express": "^4.18.2",
     "fuse.js": "^6.6.2",
+    "postcss": "^8.4.39",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4",
-    "axios": "^1.3.4",
     "tailwindcss": "^3.3.0",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.39"
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "concurrently \"react-scripts --openssl-legacy-provider start\" \"node server.js\"",
@@ -50,7 +50,11 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-react": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
     "@types/express": "^4.17.17",
+    "babel-jest": "^29.7.0",
     "ts-node": "^10.9.1"
   },
   "proxy": "http://localhost:3001"
