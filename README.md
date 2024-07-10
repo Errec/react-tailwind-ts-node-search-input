@@ -1,98 +1,98 @@
-# Search UI Code Challenge
 
-Welcome to the Search UI coding challenge. You will be asked to build a small
-application demonstrating your abilities in React and TypeScript. This challenge
-is targeted towards mid to senior level engineers.
+# Search UI Application
 
-## Instructions
+This project is a Search UI application built using React and TypeScript with Atomic methodology. It provides a search form to query data and displays the results with loading and error handling.
 
-1. Clone this repository to your local machine
-2. Create a simple UI that meets the requirements below
-3. Compress your work into a .zip file that includes your name and email it back to us for review.
- 
-### Additional Notes
+## Libraries and Frameworks Used
 
-* Use any libraries you like, keeping performance and bundle size in mind
-* Use any UI framework you like, but don't spend too much time here
-* This challenge should only take an hour or two
+- React
+- TypeScript
+- Axios
+- Tailwind CSS
+- Jest
+- React Testing Library
+- Fuse.js (for fuzzy search)
 
-## Development
+## Setup Instructions
 
-Install dependencies using `npm install`.
+Follow these steps to set up the application locally:
 
-Run `npm start` to concurrently start the server and UI in development mode.
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) to view the UI in the 
-browser. The page will reload if you make edits.
+- Node.js (v14.x or higher)
+- Yarn (v1.x or higher)
 
-### API
+### Steps
 
-* The API server is run on port `3001` while the React UI is run on port `3000`
-* Your UI can call `/api/data?search=[some-query]` directly since 
-the request will be proxied to `http://localhost/api/data?...`
-* You will to need access the API on port `3001` if you're testing it directly 
-  from outside your application (e.g. http://localhost:3001/api/data?search=credit)
+1. **Clone the repository**:
+   ```sh
+   git clone <repository-url>
+   cd <repository-directory>
+   ```
 
+2. **Install dependencies**:
+   ```sh
+   yarn install
+   ```
 
-## The Problem
+3. **Set up Tailwind CSS**:
+   Tailwind CSS is already configured in the project. Ensure that `tailwind.config.js` and `postcss.config.js` are in place.
 
-> As a consumer I want to research financial topics so I can make informed 
-decisions.
+4. **Run the development server**:
+   ```sh
+   yarn start
+   ```
 
-## Requirements
+5. **Run the API server**:
+   The API server runs on port 3001. Ensure you have a `data.json` file with your data.
+   ```sh
+   yarn server
+   ```
 
-```
-Scenario: The application shall provide a search form
-  Given the user visits the application
-  Then a search field is displayed
-  And a button is displayed with the text "Search"
-```
+6. **Run tests**:
+   To run the tests, use:
+   ```sh
+   yarn test
+   ```
 
-```
-Scenario: The search shall be triggerable by clicking the "Search" button
-  Given the user has entered a search query
-  When the user clicks the "Search" button
-  Then matching search results are displayed
-```
-
-```
-Scenario: The search shall be triggerable by pressing the Enter key
-  Given the user has entered a search query
-  And the input field is currently focused
-  When the user clicks presses the Enter key on their keyboard
-  Then matching search results are displayed
-```
+### Directory Structure
 
 ```
-Scenario: A loading state shall be shown while search results are loading
-  Given the user has entered a search query
-  When the user submits their search
-  Then a loading state is shown until the search results are available
+├── src
+│   ├── components
+│   │   ├── atoms
+│   │   │   ├── Button.tsx
+│   │   │   ├── LoadingModal.tsx
+│   │   │   └── __tests__
+│   │   │       ├── Button.test.tsx
+│   │   │       ├── Input.test.tsx
+│   │   │       └── LoadingModal.test.tsx
+│   │   ├── molecules
+│   │   │   └── SearchForm.tsx
+│   │   ├── organisms
+│   │   │   └── SearchResults.tsx
+│   │   ├── pages
+│   │   │   └── HomePage.tsx
+│   ├── types
+│   │   └── index.ts
+│   ├── App.tsx
+│   ├── index.tsx
+│   └── setupTests.ts
+├── public
+│   └── index.html
+├── data.json
+├── server.js
+├── tailwind.config.js
+├── postcss.config.js
+├── tsconfig.json
+└── package.json
 ```
 
+## API Example
+
+The API server runs on port 3001. You can call the API with a search query as follows:
 ```
-Scenario: Search results shall show result title and description
-  Given a user has performed a search
-  When search results are displayed
-  Then the title and description of each search result are displayed
+http://localhost:3001/api/data?search=your-query
 ```
 
-```
-Scenario: Clicking a search result shall open its URLs in a new tab
-  Given search results are displayed
-  When search result is clicked
-  Then the URL of the search result is opened in a new tab
-```
-
-```
-Scenario: Search results shall be marked as their content type
-  Given search results are displayed
-  Then each result is clearly marked for the end user as a video, a playlist, or a blog post in a readable way
-```
-
-```
-Scenario: The user shall be informed if no search results match their query
-  Given the user has performed a search
-  When there are no results matching their search query
-  Then the message "There are no results matching your query." is displayed
-```
+Ensure that the `data.json` file is in the root directory and contains the data you want to search.
